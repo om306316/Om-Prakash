@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="portrait-title">
+  <title id="portrait-title">Illustrated portrait of Om Prakash</title>
+  <defs>
+    <radialGradient id="portrait-bg" cx="50%" cy="34%" r="78%">
+      <stop offset="0" stop-color="#fed7aa"/>
+      <stop offset=".5" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#c2410c"/>
+    </radialGradient>
+    <linearGradient id="portrait-hoodie" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#34302d"/>
+      <stop offset="1" stop-color="#151312"/>
+    </linearGradient>
+    <linearGradient id="portrait-skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d39a72"/>
+      <stop offset="1" stop-color="#b97a55"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" fill="url(#portrait-bg)"/>
+  <circle cx="186" cy="54" r="30" fill="#fff" fill-opacity=".14"/>
+  <circle cx="44" cy="196" r="46" fill="#7c2d12" fill-opacity=".18"/>
+  <path d="M26 240c5-46 36-72 94-72s89 26 94 72z" fill="url(#portrait-hoodie)"/>
+  <path d="M100 148h40v30c0 11-9 18-20 18s-20-7-20-18z" fill="#a9694a"/>
+  <path d="M90 172c9 16 19 25 30 25s21-9 30-25l11 7c-9 21-23 33-41 33s-32-12-41-33z" fill="#46403b"/>
+  <path d="M117 200v40M123 200v40" stroke="#5b534d" stroke-width="3"/>
+  <ellipse cx="74" cy="114" rx="9" ry="13" fill="#b97a55"/>
+  <ellipse cx="166" cy="114" rx="9" ry="13" fill="#b97a55"/>
+  <path d="M120 58c28 0 46 20 46 52 0 35-20 57-46 57s-46-22-46-57c0-32 18-52 46-52z" fill="url(#portrait-skin)"/>
+  <path d="M70 108c-6-34 12-62 46-66 12-11 34-8 42 4 18 6 25 26 19 48l-7 16c-3-15-9-25-18-31-15 7-37 8-55 3-11 5-20 13-27 26z" fill="#1b1614"/>
+  <path d="M82 74l-9-17 19 8 1-19 15 14 8-19 9 18 17-11-2 19 19-4-11 17z" fill="#1b1614"/>
+  <rect x="79" y="100" width="35" height="23" rx="9" fill="#141110"/>
+  <rect x="126" y="100" width="35" height="23" rx="9" fill="#141110"/>
+  <path d="M114 108q6-5 12 0" stroke="#141110" stroke-width="4" fill="none"/>
+  <path d="M79 106l-7-3M161 106l7-3" stroke="#141110" stroke-width="4" stroke-linecap="round"/>
+  <path d="M86 106h11M133 106h11" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+  <path d="M120 123c-3 8-4 13 1 15" stroke="#a9694a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M105 146q15 11 30 0" stroke="#6e3524" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>
