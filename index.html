@@ -56,20 +56,20 @@
       --cp-apricot: #ff923f;
       --cp-porcelain: #fffdfa;
       --cp-ink: #39312c;
-      --portrait: url("assets/portrait.svg");
+      --portrait: url("assets/portrait.jpg");
       --pile-h: 250px;
     }
     html[data-theme="dark"] {
       color-scheme: dark;
-      --cp-bg: #3d3b3a;
-      --cp-bg-elevated: #343231;
-      --cp-surface: #292929;
-      --cp-surface-soft: #2e2e2e;
-      --cp-border: #474747;
-      --cp-border-strong: #5f5f5f;
-      --cp-text: #dedede;
-      --cp-text-muted: #919191;
-      --cp-text-soft: #b0b0b0;
+      --cp-bg: #070c18;
+      --cp-bg-elevated: #0c1426;
+      --cp-surface: #131f35;
+      --cp-surface-soft: #192943;
+      --cp-border: #31435f;
+      --cp-border-strong: #536d91;
+      --cp-text: #eef4ff;
+      --cp-text-muted: #a9b9d2;
+      --cp-text-soft: #c1cfe4;
       --cp-accent: #fb923c;
       --cp-accent-hover: #fdba74;
       --cp-accent-soft: rgba(251, 146, 60, 0.14);
@@ -79,9 +79,10 @@
       --cp-warning: #fbbf24;
       --cp-link: #4da6ff;
       --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
-      --cp-overlay: rgba(41, 41, 41, 0.88);
-      --cp-panel: rgba(41, 41, 41, 0.72);
-      --cp-panel-strong: rgba(41, 41, 41, 0.96);
+      --cp-overlay: rgba(12, 20, 38, 0.88);
+      --cp-panel: rgba(12, 20, 38, 0.78);
+      --cp-panel-strong: rgba(12, 20, 38, 0.96);
+      --cp-moonlight: #253e62;
       --cp-sheen: rgba(255, 255, 255, 0.04);
       --cp-highlight: rgba(251, 146, 60, 0.14);
     }
@@ -104,11 +105,12 @@
     .nav-links a:not(.nav-cta) { color: var(--cp-text-muted); transition: color .25s ease; }
     .nav-links a:hover { color: var(--cp-accent); }
     .nav-links a[aria-current="location"], .mobile-nav a[aria-current="location"] { color: var(--cp-accent); text-decoration: underline; text-underline-offset: 7px; }
-    .nav-actions { display: flex; align-items: center; gap: 12px; }
     .mobile-nav { display: none; }
     .theme-toggle { --track: 32px; position: relative; display: inline-grid; align-items: center; width: calc(2 * var(--track)); height: 44px; padding: 0 5px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; vertical-align: middle; }
-    .theme-toggle::before { content: ""; position: absolute; inset-inline: 0; top: 50%; height: var(--track); transform: translateY(-50%); border-radius: inherit; background: linear-gradient(100deg, var(--cp-apricot), color-mix(in srgb, var(--cp-apricot) 66%, var(--cp-porcelain)) 54%, var(--cp-apricot)); box-shadow: inset 0 2px 2px var(--cp-apricot), inset 0 -2px 0 color-mix(in srgb, var(--cp-porcelain) 70%, var(--cp-apricot)), inset 0 0 0 3px var(--cp-apricot), inset 0 0 0 4px color-mix(in srgb, var(--cp-apricot) 46%, var(--cp-porcelain)), inset 0 5px 8px color-mix(in srgb, var(--cp-ink) 22%, transparent); }
-    .switch-thumb { position: relative; display: grid; place-items: center; width: calc(var(--track) - 10px); aspect-ratio: 1; border-radius: 50%; background: var(--cp-porcelain); box-shadow: 0 1px 5px color-mix(in srgb, var(--cp-ink) 26%, transparent); transition: transform .38s cubic-bezier(.22,.75,.2,1); }
+    /* Glossy orange tube: bright upper rim, darker lower rim, inner depth and a soft glow underneath. */
+    .theme-toggle::before { content: ""; position: absolute; inset-inline: 0; top: 50%; height: var(--track); transform: translateY(-50%); border-radius: inherit; background: linear-gradient(180deg, color-mix(in srgb, var(--cp-porcelain) 30%, transparent), transparent 48%, color-mix(in srgb, var(--cp-ink) 12%, transparent)), linear-gradient(90deg, color-mix(in srgb, var(--cp-apricot) 72%, var(--cp-porcelain)), color-mix(in srgb, var(--cp-apricot) 84%, var(--cp-porcelain)) 45%, var(--cp-apricot) 72%, color-mix(in srgb, var(--cp-apricot) 92%, var(--cp-ink))); box-shadow: inset 0 1.5px 0 color-mix(in srgb, var(--cp-porcelain) 80%, transparent), inset 0 -2px 1px color-mix(in srgb, var(--cp-apricot) 62%, var(--cp-ink)), inset 0 0 0 3px color-mix(in srgb, var(--cp-apricot) 90%, var(--cp-ink)), inset 0 0 0 4px color-mix(in srgb, var(--cp-porcelain) 55%, var(--cp-apricot)), inset 0 6px 8px -3px color-mix(in srgb, var(--cp-ink) 34%, transparent), 0 1px 0 color-mix(in srgb, var(--cp-porcelain) 55%, transparent), 0 6px 14px -6px color-mix(in srgb, var(--cp-apricot) 70%, var(--cp-ink)); }
+    .theme-toggle::after { content: ""; position: absolute; inset-inline: calc(var(--track) * .22); top: calc(50% - var(--track) * .5 + 4px); height: calc(var(--track) * .26); border-radius: 999px; background: linear-gradient(180deg, color-mix(in srgb, var(--cp-porcelain) 62%, transparent), transparent); pointer-events: none; }
+    .switch-thumb { position: relative; z-index: 1; display: grid; place-items: center; width: calc(var(--track) - 10px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 36% 28%, var(--cp-porcelain) 0 42%, color-mix(in srgb, var(--cp-porcelain) 88%, var(--cp-ink)) 100%); box-shadow: inset 0 1.5px 1px var(--cp-porcelain), inset 0 -2px 4px color-mix(in srgb, var(--cp-ink) 14%, transparent), 0 0 0 .5px color-mix(in srgb, var(--cp-ink) 14%, transparent), 0 3px 6px color-mix(in srgb, var(--cp-ink) 32%, transparent); transition: transform .38s cubic-bezier(.22,.75,.2,1); }
     .theme-toggle[aria-pressed="true"] .switch-thumb { transform: translateX(var(--track)); }
     .switch-thumb svg { grid-area: 1 / 1; width: 68%; height: 68%; }
     .switch-sun, .switch-moon { transform-origin: center; transition: opacity .25s ease, transform .38s ease; }
@@ -152,7 +154,8 @@
     .timeline { border-top: 1px solid var(--cp-border); }
     .role { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; padding: 42px 0; border-bottom: 1px solid var(--cp-border); }
     .role-meta { color: var(--cp-text-muted); font-size: 13px; }
-    .role-meta strong { display: block; color: var(--cp-text); font-size: 16px; margin-bottom: 6px; }
+    .role-meta strong { display: flex; align-items: center; gap: 10px; color: var(--cp-text); font-size: 16px; margin-bottom: 6px; }
+    .role-meta img { object-fit: contain; padding: 5px; background: var(--cp-porcelain); border-radius: 7px; }
     .role h3 { margin-bottom: 12px; font-size: 24px; letter-spacing: -.035em; }
     .role p { max-width: 690px; color: var(--cp-text-muted); margin-bottom: 18px; }
     .role-details { margin-top: 18px; color: var(--cp-text-muted); font-size: 14px; }
@@ -196,6 +199,10 @@
     .education { margin-top: 70px; padding: 30px 0 0; border-top: 1px solid var(--cp-border); display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
     .education p { margin: 0; color: var(--cp-text-muted); }
     .education strong { display: block; color: var(--cp-text); font-size: 19px; }
+    .resume-card { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 48px; margin-block: clamp(48px, 7vw, 96px); padding: clamp(24px, 4vw, 48px); border: 1px solid var(--cp-border); border-inline-start: 4px solid var(--cp-accent); border-radius: 16px; background: var(--cp-surface); }
+    .resume-copy { flex: 1 1 440px; }
+    .resume-copy h2 { margin: 12px 0; font-size: clamp(32px, 4vw, 48px); }
+    .resume-copy p { max-width: 56ch; margin: 0; }
     .contact { text-align: center; padding: 130px 0; }
     .contact .eyebrow { justify-content: center; }
     .contact h2 { max-width: 780px; margin: 25px auto; font-size: clamp(48px, 7vw, 82px); }
@@ -213,19 +220,43 @@
     .sketch-section[hidden] { display: none; }
     .footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 18px; border-top: 1px solid var(--cp-border); padding: 28px 0; color: var(--cp-text-muted); font-size: 12px; }
     .footer-links { display: flex; flex-wrap: wrap; gap: 24px; }
+    .footer-links a { display: inline-flex; align-items: center; gap: 6px; }
+    html[data-theme="dark"] .footer-links img { filter: invert(1); }
     .footer a:hover { color: var(--cp-accent); }
-    html[data-theme="dark"] :is(.nav-links a:not(.nav-cta):not([aria-current]), .hero-copy, .ticker-inner, .section-intro, .about-copy span, .stat span, .role-meta, .role p, .role-details, .tag, .project p, .skill-row p, .education p, .contact p, .sketch-board p, .footer) { color: var(--cp-text-soft); }
+    html[data-theme="dark"] :is(.nav-links a:where(:not(.nav-cta):not([aria-current])), .hero-copy, .ticker-inner, .section-intro, .about-copy span, .stat span, .role-meta, .role p, .role-details, .tag, .project p, .skill-row p, .education p, .contact p, .sketch-board p, .footer) { color: var(--cp-text-soft); }
     .js-motion .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
     .js-motion .reveal.visible { opacity: 1; transform: translateY(0); }
     /* A typography-led opening and a quieter canvas for the work. */
     body { background-image: none; }
     header.wrap { width: min(1200px, calc(100% - 64px)); background: transparent; padding-top: 16px; pointer-events: none; }
     .nav { width: fit-content; max-width: 100%; min-height: 56px; margin: auto; padding: 6px; border: 1px solid var(--cp-border); border-radius: 999px; background: var(--cp-surface); pointer-events: auto; }
+    @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      @media not (prefers-reduced-transparency: reduce) {
+        header :is(.nav, .mobile-nav) {
+          background: linear-gradient(135deg, var(--cp-sheen), transparent 42%, var(--cp-accent-soft)), color-mix(in srgb, var(--cp-panel) 92%, transparent);
+          -webkit-backdrop-filter: blur(24px) saturate(160%);
+          backdrop-filter: blur(24px) saturate(160%);
+          border-color: color-mix(in srgb, var(--cp-porcelain) 36%, var(--cp-border));
+          box-shadow: inset 0 1px 0 color-mix(in srgb, var(--cp-porcelain) 30%, transparent), 0 5px 18px color-mix(in srgb, var(--cp-ink) 14%, transparent);
+        }
+        html[data-theme="dark"] header :is(.nav, .mobile-nav) {
+          background: linear-gradient(120deg, var(--cp-sheen), transparent 70%), color-mix(in srgb, var(--cp-text) 24%, transparent);
+          -webkit-backdrop-filter: blur(14px) saturate(120%) brightness(.65);
+          backdrop-filter: blur(14px) saturate(120%) brightness(.65);
+          border-color: color-mix(in srgb, var(--cp-text) 22%, transparent);
+          box-shadow: inset 0 1px 0 var(--cp-sheen), 0 3px 12px color-mix(in srgb, var(--cp-bg) 22%, transparent);
+        }
+        html[data-theme="dark"] header :is(.nav-links, .mobile-nav) a:not(.nav-cta) { color: var(--cp-text); }
+        html[data-theme="dark"] header a[aria-current="location"] { text-decoration-color: var(--cp-accent); }
+      }
+    }
     .brand { padding: 0 10px 0 0; font-size: 0; }
     .brand-mark { border-radius: 50%; font-size: 12px; }
     .nav-links { gap: 20px; }
     .nav-cta { padding: 10px 14px; border-radius: 999px; background: var(--cp-text); color: var(--cp-bg); border-color: var(--cp-text); }
-    .nav-cta:hover { background: var(--cp-accent); color: var(--cp-accent-fg); }
+    .nav-links .nav-cta:hover { background: var(--cp-accent); color: var(--cp-accent-fg); }
+    .nav-links .nav-cta[aria-current="location"] { color: var(--cp-bg); }
+    .nav-links .nav-cta[aria-current="location"]:hover { color: var(--cp-accent-fg); }
     /* Hero: name-first headline, portrait aura, ruler backdrop and a pile of physics tiles. */
     .hero { position: relative; z-index: 0; isolation: isolate; overflow: hidden; overflow: clip; background: var(--cp-bg); display: flex; flex-direction: column; justify-content: center; min-height: max(720px, 100svh); margin-top: calc(-1 * var(--header-h, 88px)); padding: calc(var(--header-h, 88px) + 40px) 0 var(--pile-h); text-align: center; }
     .hero-bg { position: absolute; z-index: -1; inset: 0; pointer-events: none; }
@@ -234,8 +265,12 @@
     .hero-aura::before, .hero-aura::after { content: ""; position: absolute; border-radius: 50%; background: var(--portrait) center 32% / cover no-repeat; }
     .hero-aura::before { inset: 14%; filter: blur(90px) saturate(1.5); opacity: .5; animation: aura-breathe 9s ease-in-out infinite alternate; }
     .hero-aura::after { inset: 27%; filter: blur(16px) saturate(.9); opacity: .13; -webkit-mask-image: radial-gradient(closest-side, black 52%, transparent); mask-image: radial-gradient(closest-side, black 52%, transparent); }
-    html[data-theme="dark"] .hero-aura::before { opacity: .34; }
-    html[data-theme="dark"] .hero-aura::after { opacity: .16; }
+    html[data-theme="dark"] .hero-bg { background:
+      radial-gradient(1px 1px at 18% 28%, var(--cp-text-muted) 75%, transparent) 0 0 / 233px 193px,
+      radial-gradient(1px 1px at 71% 64%, var(--cp-border-strong) 75%, transparent) 0 0 / 181px 227px,
+      radial-gradient(ellipse at 50% 38%, var(--cp-moonlight), var(--cp-bg) 68%); }
+    html[data-theme="dark"] .hero-aura::before { opacity: .12; }
+    html[data-theme="dark"] .hero-aura::after { opacity: .1; }
     @keyframes aura-breathe { from { transform: scale(.92) rotate(-8deg); } to { transform: scale(1.08) rotate(8deg); } }
     .hero-spot { position: absolute; left: 0; top: 0; width: 560px; height: 560px; margin: -280px 0 0 -280px; border-radius: 50%; background: radial-gradient(circle, var(--cp-highlight), transparent 66%); opacity: 0; transition: opacity .5s ease; will-change: transform; }
     .hero.is-pointing .hero-spot { opacity: 1; }
@@ -268,9 +303,12 @@
     .tile-hint b { color: var(--cp-accent); }
     .tiles-live .tile-hint { display: block; }
     .tiles { position: absolute; z-index: 1; left: 0; right: 0; bottom: 28px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: center; gap: 8px; margin: 0; padding: 0 56px; list-style: none; pointer-events: none; }
-    .tile { --tile-bg: var(--cp-surface); --tile-fg: var(--cp-text); --tile-icon: var(--cp-accent); display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 10px; height: 48px; padding: 0 22px; border: 1px solid color-mix(in srgb, var(--tile-fg) 16%, transparent); border-radius: 999px; background: var(--tile-bg); color: var(--tile-fg); box-shadow: inset 0 -4px 0 color-mix(in srgb, var(--tile-fg) 9%, transparent), 0 0 2px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.14); font-size: 13px; font-weight: 800; line-height: 1; letter-spacing: .03em; text-transform: uppercase; white-space: nowrap; user-select: none; -webkit-user-select: none; pointer-events: auto; }
-    .tile:nth-child(3n) { transform: rotate(-5deg); }
-    .tile:nth-child(3n + 1) { transform: rotate(4deg); }
+    /* --lx/--ly are the screen's "down" direction in the tile's rotated frame, so light always comes from the top of the screen. */
+    .tile { --tile-bg: var(--cp-surface); --tile-fg: var(--cp-text); --tile-icon: var(--cp-accent); --tile-shade: var(--cp-ink); --tilt: 0deg; --lx: 0; --ly: 1; position: relative; isolation: isolate; display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 10px; height: 48px; padding: 0 22px; border: 1px solid color-mix(in srgb, var(--tile-fg) 16%, transparent); border-radius: 999px; background: var(--tile-bg); color: var(--tile-fg); box-shadow: inset calc(var(--lx) * 2px) calc(var(--ly) * 2px) 1px -.5px color-mix(in srgb, var(--cp-porcelain) 78%, transparent), inset calc(var(--lx) * -5px) calc(var(--ly) * -5px) 8px -3px color-mix(in srgb, var(--tile-shade) 24%, transparent), calc(var(--lx) * 7px) calc(var(--ly) * 7px) 14px -6px color-mix(in srgb, var(--tile-shade) 48%, transparent), 0 0 0 .5px color-mix(in srgb, var(--tile-shade) 10%, transparent); font-size: 13px; font-weight: 800; line-height: 1; letter-spacing: .03em; text-transform: uppercase; white-space: nowrap; user-select: none; -webkit-user-select: none; pointer-events: auto; }
+    .tile::before { content: ""; position: absolute; z-index: -1; inset: 1px; border-radius: inherit; background: linear-gradient(calc(180deg - var(--tilt)), color-mix(in srgb, var(--cp-porcelain) 34%, transparent), color-mix(in srgb, var(--cp-porcelain) 7%, transparent) 40%, transparent 58%, color-mix(in srgb, var(--tile-shade) 7%, transparent)); pointer-events: none; }
+    html[data-theme="dark"] .tile { --tile-shade: color-mix(in srgb, var(--cp-bg) 55%, black); }
+    .tile:nth-child(3n) { transform: rotate(-5deg); --tilt: -5deg; --lx: -.087; --ly: .996; }
+    .tile:nth-child(3n + 1) { transform: rotate(4deg); --tilt: 4deg; --lx: .07; --ly: .998; }
     .tile i { color: var(--tile-icon); font-style: normal; font-size: 15px; }
     .tile--round { width: 48px; padding: 0; color: var(--tile-icon); font-size: 18px; }
     .tile--ink { --tile-bg: var(--cp-text); --tile-fg: var(--cp-bg); }
@@ -288,9 +326,13 @@
     .role:nth-child(2) { margin-top: 28px; }
     .role:nth-child(3) { margin-top: 56px; }
     .role-meta strong { color: var(--cp-accent); }
-    .js-motion .role.reveal, .role { transition: opacity .4s ease, transform .7s cubic-bezier(.2,.7,.2,1), filter .4s ease, border-color .4s ease; }
+    .js-motion .role.reveal, .role { transition: opacity .4s ease, transform .7s cubic-bezier(.2,.7,.2,1), translate .25s ease-out, filter .4s ease, border-color .4s ease; }
     .timeline:has(> .in-focus) > .role:not(.in-focus) { filter: blur(2px) opacity(.68); }
     .role.in-focus { border-color: var(--cp-accent); }
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .role.in-focus:is(:hover, :focus-within) { translate: 0 -8px; z-index: 1; }
+      .role.in-focus:hover::after { content: ""; position: absolute; inset: 100% 0 auto; height: 8px; }
+    }
     .project-grid { gap: 20px; padding: 0; }
     .project, .project:nth-child(2), .js-motion .project.reveal.visible, .js-motion .project.reveal.visible:nth-child(2) { min-height: 430px; transform: none; }
     .project::before { display: none; }
@@ -316,7 +358,7 @@
       .nav { min-height: 56px; }
       .nav-links { gap: 12px; }
       .nav-links a:not(.nav-cta):not(.nav-work) { display: none; }
-      .mobile-nav { display: flex; justify-content: space-between; gap: 16px; padding: 13px 10px; margin-top: 6px; border: 1px solid var(--cp-border); border-radius: 10px; background: var(--cp-surface); color: var(--cp-text-soft); font: 700 10px Consolas, "Courier New", monospace; letter-spacing: .04em; pointer-events: auto; }
+      .mobile-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 13px 10px; margin-top: 6px; border: 1px solid var(--cp-border); border-radius: 10px; background: var(--cp-surface); color: var(--cp-text-soft); font: 700 10px Consolas, "Courier New", monospace; letter-spacing: .04em; pointer-events: auto; }
       .mobile-nav a:hover { color: var(--cp-accent); }
       .nav-work { display: none !important; }
       .hero { --pile-h: 230px; min-height: max(680px, 100svh); padding-top: calc(var(--header-h, 130px) + 28px); }
@@ -353,7 +395,6 @@
       .ticker-inner span:nth-child(even) { display: none; }
       .nav { gap: 8px; }
       .brand { font-size: 0; }
-      .nav-actions { gap: 8px; }
       .nav-cta { padding: 11px; }
       .stat, .stat + .stat { padding: 18px; }
     }
@@ -378,12 +419,9 @@
   <header class="wrap">
     <nav class="nav" aria-label="Main navigation">
       <a class="brand" href="#top" aria-label="Om Prakash, home"><span class="brand-mark">OP.</span> OM PRAKASH</a>
-      <div class="nav-actions">
-        <div class="nav-links"><a href="#about">ABOUT</a><a class="nav-work" href="#experience">EXPERIENCE</a><a href="#projects">PROJECTS</a><a href="#skills">SKILLS</a><a class="nav-cta" href="#contact">LET'S TALK ↗</a></div>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden><span class="switch-thumb" aria-hidden="true"><svg class="switch-sun" viewBox="0 0 24 24"><use href="#sun-glyph"/></svg><svg class="switch-moon" viewBox="0 0 24 24"><use href="#moon-glyph"/></svg></span></button>
-      </div>
+      <div class="nav-links"><a href="#about">ABOUT</a><a class="nav-work" href="#experience">EXPERIENCE</a><a href="#projects">PROJECTS</a><a href="#skills">SKILLS</a><a href="#resume">Resume</a><a class="nav-cta" href="#contact">LET'S TALK ↗</a></div>
     </nav>
-    <nav class="mobile-nav" aria-label="Section navigation"><a href="#about">ABOUT</a><a href="#experience">EXPERIENCE</a><a href="#projects">PROJECTS</a><a href="#skills">SKILLS</a></nav>
+    <nav class="mobile-nav" aria-label="Section navigation"><a href="#about">ABOUT</a><a href="#experience">EXPERIENCE</a><a href="#projects">PROJECTS</a><a href="#skills">SKILLS</a><a href="#resume">Resume</a></nav>
   </header>
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
@@ -395,10 +433,10 @@
         <div class="hero-ruler hero-ruler--right"></div>
       </div>
       <div class="wrap hero-intro">
-        <p class="hero-greeting">Hey there <span class="portrait" role="img" aria-label="Illustrated portrait placeholder"></span> I'm</p>
+        <p class="hero-greeting">Hey there <span class="portrait" role="img" aria-label="Portrait of Om Prakash"></span> I'm</p>
         <h1 class="hero-name" id="hero-title"><span class="sr-only">Om Prakash</span><span class="name-word" aria-hidden="true"><span class="char" style="--i:0">O</span><span class="char" style="--i:1">M</span></span> <span class="name-word name-word--accent" aria-hidden="true"><span class="char" style="--i:2">P</span><span class="char" style="--i:3">R</span><span class="char" style="--i:4">A</span><span class="char" style="--i:5">K</span><span class="char" style="--i:6">A</span><span class="char" style="--i:7">S</span><span class="char" style="--i:8">H</span></span></h1>
         <p class="hero-role">Full-stack <em>engineer</em> &amp; builder.</p>
-        <button class="theme-toggle hero-theme" type="button" aria-label="Dark mode" aria-pressed="false" hidden><span class="switch-thumb" aria-hidden="true"><svg class="switch-sun" viewBox="0 0 24 24"><use href="#sun-glyph"/></svg><svg class="switch-moon" viewBox="0 0 24 24"><use href="#moon-glyph"/></svg></span></button>
+        <button class="theme-toggle hero-theme" id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden><span class="switch-thumb" aria-hidden="true"><svg class="switch-sun" viewBox="0 0 24 24"><use href="#sun-glyph"/></svg><svg class="switch-moon" viewBox="0 0 24 24"><use href="#moon-glyph"/></svg></span></button>
         <p class="hero-copy">Turning complex problems into thoughtful experiences. Currently a <strong>Forward Deployed Engineer at Microsoft</strong>, based in Noida, India.</p>
         <div class="actions"><a class="button" href="#experience">Explore my work <span aria-hidden="true">↗</span></a><a class="text-link" href="#contact">Get in touch ↗</a></div>
         <p class="tile-hint" aria-hidden="true"><b>✳</b> Drag with a mouse or tap the tiles</p>
@@ -443,9 +481,18 @@
       <div class="wrap">
         <div class="section-head reveal"><div class="section-index">02 / Experience</div><div><h2>Making an impact,<br>one release at a time.</h2><p class="section-intro">Building products, improving systems, and learning from great teams along the way.</p></div></div>
         <div class="timeline">
-          <article class="role reveal"><div class="role-meta"><strong>Microsoft</strong>Apr 2025 — Present<br>Noida, India</div><div><h3>Forward Deployed Engineer</h3><p>Owning the Orders vertical on account.microsoft.com, from architecture and code review to release and production reliability. Delivered service migrations, Microsoft 365 plan selection, Windows billing experiences, and AI-assisted engineering workflows.</p><div class="tags"><span class="tag">C# / .NET</span><span class="tag">React / TypeScript</span><span class="tag">GitHub Copilot</span><span class="tag">Reliability</span></div><details class="role-details"><summary>Explore highlights</summary><ul><li>Validated Query Service migration readiness across 10,009 production events.</li><li>Reduced profile-photo fetch latency from 81.1 ms to 3.4 ms with versioned caching.</li><li>Shipped inline recurring-billing activation in Windows Settings, validated with 116 focused tests.</li><li>Helped mitigate an Orders bot attack through investigation and coordinated protection.</li></ul></details></div></article>
-          <article class="role reveal"><div class="role-meta"><strong>InsuranceDekho</strong>Sep 2023 — Apr 2025<br>Gurugram, India</div><div><h3>Software Developer Engineer</h3><p>Built microservices and partner integrations for health-insurance products. Improved premium-calculation accuracy by 20% while making content and add-ons more useful and discoverable.</p><div class="tags"><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">REST APIs</span><span class="tag">Microservices</span></div><details class="role-details"><summary>Explore highlights</summary><ul><li>Integrated health-insurance products from HDFC, ICICI, Reliance and other providers.</li><li>Improved CMS engagement by 15% and add-on exposure by 43%.</li></ul></details></div></article>
-          <article class="role reveal"><div class="role-meta"><strong>Cadence</strong>Jan 2023 — Jun 2023<br>Noida, India</div><div><h3>Product Validation Intern</h3><p>Built product-validation frameworks and API tests that improved repeatability, defect detection, and engineering feedback before release.</p><div class="tags"><span class="tag">Python</span><span class="tag">Perl</span><span class="tag">API testing</span></div><details class="role-details"><summary>Explore highlights</summary><ul><li>Developed reusable validation tooling in Perl and Python.</li><li>Strengthened pre-release feedback with repeatable API testing.</li></ul></details></div></article>
+          <article class="role reveal">
+            <div class="role-meta"><strong><img src="assets/microsoft.ico" alt="" width="32" height="32">Microsoft</strong>Apr 2025 — Present<br>Noida, India</div>
+            <div><h3>Forward Deployed Engineer</h3><p>Owning the Orders vertical on account.microsoft.com, from architecture and code review to release and production reliability. Delivered service migrations, Microsoft 365 plan selection, Windows billing experiences, and AI-assisted engineering workflows.</p><div class="tags"><span class="tag">C# / .NET</span><span class="tag">React / TypeScript</span><span class="tag">GitHub Copilot</span><span class="tag">Reliability</span></div><details class="role-details"><summary>Explore highlights</summary><ul><li>Validated Query Service migration readiness across 10,009 production events.</li><li>Reduced profile-photo fetch latency from 81.1 ms to 3.4 ms with versioned caching.</li><li>Shipped inline recurring-billing activation in Windows Settings, validated with 116 focused tests.</li><li>Helped mitigate an Orders bot attack through investigation and coordinated protection.</li></ul></details></div>
+          </article>
+          <article class="role reveal">
+            <div class="role-meta"><strong><img src="assets/insurancedekho.ico" alt="" width="32" height="32">InsuranceDekho</strong>Sep 2023 — Apr 2025<br>Gurugram, India</div>
+            <div><h3>Software Developer Engineer</h3><p>Built microservices and partner integrations for health-insurance products. Improved premium-calculation accuracy by 20% while making content and add-ons more useful and discoverable.</p><div class="tags"><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">REST APIs</span><span class="tag">Microservices</span></div><details class="role-details"><summary>Explore highlights</summary><ul><li>Integrated health-insurance products from HDFC, ICICI, Reliance and other providers.</li><li>Improved CMS engagement by 15% and add-on exposure by 43%.</li></ul></details></div>
+          </article>
+          <article class="role reveal">
+            <div class="role-meta"><strong><img src="assets/cadence.png" alt="" width="32" height="32">Cadence</strong>Jan 2023 — Jun 2023<br>Noida, India</div>
+            <div><h3>Product Validation Intern</h3><p>Built product-validation frameworks and API tests that improved repeatability, defect detection, and engineering feedback before release.</p><div class="tags"><span class="tag">Python</span><span class="tag">Perl</span><span class="tag">API testing</span></div><details class="role-details"><summary>Explore highlights</summary><ul><li>Developed reusable validation tooling in Perl and Python.</li><li>Strengthened pre-release feedback with repeatable API testing.</li></ul></details></div>
+          </article>
         </div>
       </div>
     </section>
@@ -469,6 +516,15 @@
         </div></div>
         <div class="education reveal"><div class="section-index">Education</div><p><strong>B.Tech. in Computer Science</strong>National Institute of Technology Jalandhar · Class of 2023</p></div>
       </div>
+    </section>
+
+    <section class="wrap resume-card" id="resume" aria-labelledby="resume-title">
+      <div class="resume-copy">
+        <span class="section-index">05 / Career summary</span>
+        <h2 id="resume-title">Resume</h2>
+        <p>At Microsoft, I build account and billing experiences. My resume covers that work, the insurance integrations I built at InsuranceDekho, and my computer science degree from NIT Jalandhar.</p>
+      </div>
+      <a class="button" href="https://drive.google.com/file/d/10xLNOHzgyXJ4A2Nxs34AGseodhHNUFfZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">View Resume on Google Drive<span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
     </section>
 
     <section class="section wrap sketch-section" id="sketch" aria-labelledby="sketch-title" hidden>
@@ -508,19 +564,25 @@
       </a>
     </section>
   </main>
-  <footer class="wrap footer"><span>© <span id="year">2026</span> Om Prakash. Built with intention.</span><div class="footer-links"><a href="mailto:omprakash.cs.2019@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/om-prakash">LinkedIn ↗</a><a href="https://github.com/om306316">GitHub ↗</a><a href="#top">Back to top ↑</a></div></footer>
+  <footer class="wrap footer"><span>© <span id="year">2026</span> Om Prakash. Built with intention.</span>
+    <div class="footer-links">
+      <a href="mailto:omprakash.cs.2019@gmail.com"><img src="assets/envelope.svg" alt="" width="16" height="16">Email ↗</a>
+      <a href="https://www.linkedin.com/in/om-prakash"><img src="assets/linkedin.svg" alt="" width="16" height="16">LinkedIn ↗</a>
+      <a href="https://github.com/om306316"><img src="assets/github.svg" alt="" width="16" height="16">GitHub ↗</a>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-    const themeToggles = [...document.querySelectorAll(".theme-toggle")];
+    const themeToggle = document.getElementById("theme-toggle");
     const syncThemeToggle = () => {
       const dark = document.documentElement.dataset.theme === "dark";
-      themeToggles.forEach((toggle) => {
-        toggle.setAttribute("aria-pressed", String(dark));
-        toggle.title = dark ? "Switch to light mode" : "Switch to dark mode";
-      });
+      themeToggle.setAttribute("aria-pressed", String(dark));
+      themeToggle.title = dark ? "Switch to light mode" : "Switch to dark mode";
     };
     syncThemeToggle();
-    themeToggles.forEach((toggle) => { toggle.hidden = false; toggle.addEventListener("click", () => {
+    themeToggle.hidden = false;
+    themeToggle.addEventListener("click", () => {
       const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
       document.documentElement.dataset.theme = theme;
       syncThemeToggle();
@@ -530,9 +592,9 @@
       } catch (error) {
         console.warn("Could not save theme preference.", error);
       }
-    }); });
+    });
     const progress = document.querySelector(".scroll-progress");
-    const navigationSections = [...document.querySelectorAll("#about, #experience, #projects, #skills, #contact")];
+    const navigationSections = [...document.querySelectorAll("#about, #experience, #projects, #skills, #resume, #contact")];
     const sectionLinks = [...document.querySelectorAll('.nav-links a[href^="#"], .mobile-nav a[href^="#"]')];
     const projectArt = [...document.querySelectorAll(".project-art")];
     const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
@@ -924,7 +986,14 @@
       const render = () => {
         active.forEach((body) => {
           if (Math.cos(body.a + body.flip) < -.17) body.flip = body.flip ? 0 : Math.PI;
-          body.el.style.transform = `translate3d(${(body.x - body.bw / 2).toFixed(2)}px, ${(body.y - body.bh / 2).toFixed(2)}px, 0) rotate(${(body.a + body.flip).toFixed(4)}rad)`;
+          const angle = body.a + body.flip;
+          body.el.style.transform = `translate3d(${(body.x - body.bw / 2).toFixed(2)}px, ${(body.y - body.bh / 2).toFixed(2)}px, 0) rotate(${angle.toFixed(4)}rad)`;
+          if (!(Math.abs(angle - body.lit) < .01)) {
+            body.lit = angle;
+            body.el.style.setProperty("--tilt", `${angle.toFixed(3)}rad`);
+            body.el.style.setProperty("--lx", Math.sin(angle).toFixed(3));
+            body.el.style.setProperty("--ly", Math.cos(angle).toFixed(3));
+          }
         });
       };
       const tick = (now) => {
