@@ -338,6 +338,35 @@
     .project::before { display: none; }
     .project:hover, .js-motion .project.reveal.visible:hover, .js-motion .project.reveal.visible:nth-child(2):hover { transform: translateY(-8px); }
     .project-art { height: 190px; }
+    /* Newest project: a full-width card with copy beside an animated roadmap preview. */
+    .project--featured { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 36px; align-items: stretch; }
+    .project-body { display: flex; flex-direction: column; }
+    .project-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .project-badge { padding: 3px 9px; border-radius: 999px; background: var(--cp-accent); color: var(--cp-accent-fg); font-size: 9px; font-weight: 700; letter-spacing: .14em; }
+    .project--featured h3 { margin-top: 18px; }
+    .project--featured .project-art { height: auto; min-height: 270px; margin: 0; }
+    .project--featured .project-panel { width: min(330px, 84%); height: auto; padding: 18px; }
+    .project-features { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; margin: 2px 0 26px; padding: 0; list-style: none; color: var(--cp-text-muted); font-size: 13px; line-height: 1.45; }
+    html[data-theme="dark"] .project-features { color: var(--cp-text-soft); }
+    .project-features li { display: flex; gap: 8px; }
+    .project-features li::before { content: "✓"; color: var(--cp-accent); font-weight: 800; }
+    .project-features li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .project-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: auto; }
+    .project-foot .tags { margin-top: 0; }
+    .project-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 18px; border: 1px solid var(--cp-accent); border-radius: 999px; color: var(--cp-accent); font-size: 13px; font-weight: 700; white-space: nowrap; transition: background .25s ease, color .25s ease; }
+    .project-link > span[aria-hidden] { transition: transform .25s ease; }
+    .project-link:hover { background: var(--cp-accent); color: var(--cp-accent-fg); }
+    .project-link:hover > span[aria-hidden] { transform: translate(2px, -2px); }
+    .dsa-row { display: grid; grid-template-columns: 64px 1fr 30px; align-items: center; gap: 10px; margin-top: 10px; color: var(--cp-text-muted); font-size: 10px; }
+    .dsa-row b { color: var(--cp-text); }
+    .dsa-row i { position: relative; height: 7px; overflow: hidden; border: 1px solid var(--cp-accent); border-radius: 999px; background: var(--cp-accent-soft); }
+    .dsa-row i::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--cp-accent); transform: scaleX(var(--p)); transform-origin: left; }
+    .js-motion .project.reveal:not(.visible) .dsa-row i::after { transform: scaleX(0); }
+    .js-motion .project.reveal.visible .dsa-row i::after { transition: transform 1.1s cubic-bezier(.2,.7,.2,1) .35s; }
+    .dsa-due { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 14px; padding: 8px 10px; border: 1px dashed var(--cp-accent); border-radius: 8px; color: var(--cp-text-muted); font-size: 9px; }
+    .dsa-due b { color: var(--cp-accent); }
+    .js-motion .project.reveal.visible:nth-child(2) { transition-delay: 0s; }
+    .js-motion .project.reveal.visible:nth-child(3) { transition-delay: .12s; }
     .contact h2 { max-width: 1000px; font-size: clamp(54px, 8vw, 106px); font-weight: 800; text-transform: uppercase; }
     .contact { position: relative; }
     .cat-stage { width: min(300px, 90%); margin: 0 auto 16px; pointer-events: none; }
@@ -372,6 +401,9 @@
       .stat, .stat + .stat { padding: 24px; }
       .timeline { grid-template-columns: 1fr; }
       .role, .role:nth-child(2), .role:nth-child(3) { min-height: 0; margin-top: 0; padding: 26px; }
+      .project--featured { display: flex; gap: 0; }
+      .project--featured .project-art { order: -1; min-height: 220px; margin-bottom: 20px; }
+      .project-features { grid-template-columns: 1fr; }
       .contact { padding: 90px 0; }
       section { scroll-margin-top: 125px; }
     }
@@ -500,8 +532,27 @@
     <section class="section wrap" id="projects">
       <div class="section-head reveal"><div class="section-index">03 / Selected projects</div><div><h2>Ideas, made real.</h2><p class="section-intro">A few things I’ve built with curiosity, care, and a focus on practical experiences.</p></div></div>
       <div class="project-grid">
-        <article class="project reveal"><span class="project-number mono">01 / WELLNESS</span><div class="project-art" aria-hidden="true"><div class="project-panel"><div class="panel-heading">ACTIVITY <span>THIS WEEK ↗</span></div><div class="project-bars"><i></i><i></i><i></i><i></i></div></div></div><h3>Fitness Tracker</h3><p>A responsive fitness platform with personalized routines, activity history, interactive data views, and secure authentication.</p><div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div></article>
-        <article class="project reveal"><span class="project-number mono">02 / COMMUNITY</span><div class="project-art" aria-hidden="true"><div class="project-panel donor-panel"><div class="panel-heading">CONNECT <span>DONOR ↗</span></div><div class="donor-search">Search for a connection</div><div class="donor-row"><b>+</b> People helping people</div></div></div><h3>Connect2Donor</h3><p>A donor-recipient platform with live search, secure data handling, and accessible workflows designed to connect people.</p><div class="tags"><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">SQL</span><span class="tag">Bootstrap</span></div></article>
+        <article class="project project--featured reveal" aria-labelledby="dsa-desk-title">
+          <div class="project-body">
+            <div class="project-kicker"><span class="project-number mono">01 / LEARNING</span><span class="project-badge mono">NEW</span></div>
+            <h3 id="dsa-desk-title">DSA desk</h3>
+            <p>A practice tracker built around FRAZ’s DSA Sheet that keeps every question, note, and next revision in one place, so steady practice turns into visible progress.</p>
+            <ul class="project-features">
+              <li>Topic &amp; difficulty filters</li>
+              <li>Per-question notes</li>
+              <li>Revision scheduling</li>
+              <li>Progress by topic</li>
+              <li>Optional cross-device sync with Google sign-in</li>
+            </ul>
+            <div class="project-foot">
+              <div class="tags"><span class="tag">JavaScript</span><span class="tag">Firebase Auth</span><span class="tag">Cloud Firestore</span></div>
+              <a class="project-link" href="https://web-app-1e216.web.app" target="_blank" rel="noopener noreferrer">Open live app<span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+          <div class="project-art" aria-hidden="true"><div class="project-panel dsa-panel"><div class="panel-heading">YOUR ROADMAP <span>21 TOPICS ↗</span></div><div class="dsa-row"><b>Arrays</b><i style="--p: .62"></i><span>62%</span></div><div class="dsa-row"><b>Graphs</b><i style="--p: .48"></i><span>48%</span></div><div class="dsa-row"><b>DP</b><i style="--p: .31"></i><span>31%</span></div><div class="dsa-due"><span>↻ Due for revision</span><b>Today</b></div></div></div>
+        </article>
+        <article class="project reveal"><span class="project-number mono">02 / WELLNESS</span><div class="project-art" aria-hidden="true"><div class="project-panel"><div class="panel-heading">ACTIVITY <span>THIS WEEK ↗</span></div><div class="project-bars"><i></i><i></i><i></i><i></i></div></div></div><h3>Fitness Tracker</h3><p>A responsive fitness platform with personalized routines, activity history, interactive data views, and secure authentication.</p><div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div></article>
+        <article class="project reveal"><span class="project-number mono">03 / COMMUNITY</span><div class="project-art" aria-hidden="true"><div class="project-panel donor-panel"><div class="panel-heading">CONNECT <span>DONOR ↗</span></div><div class="donor-search">Search for a connection</div><div class="donor-row"><b>+</b> People helping people</div></div></div><h3>Connect2Donor</h3><p>A donor-recipient platform with live search, secure data handling, and accessible workflows designed to connect people.</p><div class="tags"><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">SQL</span><span class="tag">Bootstrap</span></div></article>
       </div>
     </section>
 

@@ -1,6 +1,6 @@
 # Om Prakash | Engineering portfolio
 
-A personal site about my work on Microsoft account and billing experiences, my earlier engineering roles, and two projects: **Fitness Tracker** and **Connect2Donor**. The site is plain HTML, CSS, JavaScript, and SVG. There are no packages to install and no build step.
+A personal site about my work on Microsoft account and billing experiences, my earlier engineering roles, and three projects: **[DSA desk](https://web-app-1e216.web.app)** (a DSA Sheet practice tracker), **Fitness Tracker**, and **Connect2Donor**. The site is plain HTML, CSS, JavaScript, and SVG. There are no packages to install and no build step.
 
 ## Preview locally
 
